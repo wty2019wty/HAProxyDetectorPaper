@@ -41,12 +41,6 @@ jobs:
           name: HAProxyDetector-Paper
           path: build/libs/*.jar
 
-      # 必须的补充：生成一个临时日志文件，防止 mc-publish 找不到 CHANGELOG.txt 报错
-      - name: Generate simple Changelog
-        run: |
-          echo "## Release ${{ github.ref_name }}" > CHANGELOG.txt
-          echo "自动构建发布的版本。" >> CHANGELOG.txt
-
       - name: Publish to GitHub
         uses: Kir-Antipov/mc-publish@v3.3
         with:
